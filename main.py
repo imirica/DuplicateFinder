@@ -2,8 +2,9 @@ from tkinter import *
 from tkinter import filedialog
 
 class Application(Frame):
-    def __init__(self, master=None):
+    def __init__(self, master=None, defaultPath="C:/"):
         super().__init__(master)
+        self.defaultPath=defaultPath
         self.master = master
         self.pack()
         self.create_widgets()
@@ -23,8 +24,8 @@ class Application(Frame):
         self.button_exit.grid(column=1, row=5)
 
     def browseFiles(self):
-        self.filename = filedialog.askdirectory(initialdir="C:/", title="Select a path")
-        self.myLabel.configure(text="Duplicate File Search in :  " + self.filename)
+        self.startPath = filedialog.askdirectory(initialdir=self.defaultPath, title="Select a path")
+        self.myLabel.configure(text="Duplicate File Search in :  " + self.startPath)
 
 root = Tk()
 root.title('DuplicateFinder by @mrk')
