@@ -27,9 +27,10 @@ class Application(Frame):
         self.button_exit.grid(column=1, row=5)
 
     def browse_files(self):
+        self.default_text = "Duplicate File Search in :  "
         self.start_path = filedialog.askdirectory(initialdir="C:/", title="Select a path")
-        self.my_label.configure(text="Duplicate File Search in :  " + self.start_path)
-        if self.my_label["text"] != "Duplicate File Search in :  ":
+        self.my_label.configure(text=self.default_text + self.start_path)
+        if self.my_label["text"] != self.default_text:
             self.button_search["state"] = "active"
         else:
             self.button_search["state"] = "disabled"
