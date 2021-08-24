@@ -14,7 +14,8 @@ class Application(Frame):
 
     def create_widgets(self):
         # Labels
-        self.my_label = Label(self, text="Duplicate Finder", width=60, height=4, fg="blue", bg="white")
+        self.title_text="Duplicate Finder"
+        self.my_label = Label(self, text=self.title_text, width=60, height=4, fg="blue", bg="white")
         self.my_label.grid(column=1, row=1)
         self.result_label = Label(self, text="Here will be displayed the results", width=60, height=4)
         self.result_label.grid(column=1, row=4)
@@ -34,7 +35,7 @@ class Application(Frame):
             self.button_search["state"] = "active"
         else:
             self.button_search["state"] = "disabled"
-            self.my_label["text"] = "Duplicate Finder"
+            self.my_label["text"] = self.title_text
 
 
 root = Tk()
