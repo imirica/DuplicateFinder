@@ -34,6 +34,7 @@ class Application(Frame):
             self.button_search["state"] = "active"
         else:
             self.button_search["state"] = "disabled"
+            self.my_label["text"] = "Duplicate Finder"
 
 
 root = Tk()
