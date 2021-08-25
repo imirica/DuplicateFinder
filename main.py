@@ -29,14 +29,17 @@ class Application(Frame):
 
     def browse_files(self):
         self.default_text = "Duplicate File Search in :  "
-        self.start_path = filedialog.askdirectory(initialdir="C:/", title="Select a path")
-        self.my_label.configure(text=self.default_text + self.start_path)
-        if self.my_label["text"] != self.default_text:
-            self.button_search["state"] = "active"
-        else:
-            self.button_search["state"] = "disabled"
-            self.my_label["text"] = self.title_text
+        self.start_path = filedialog.askdirectory(initialdir="C:/",title="Select a path")
 
+        if self.start_path == "" and self.my_label["text"]!=self.title_text:
+            self.button_search["state"] = "active"
+
+        elif self.start_path == "":
+            self.button_search["state"] = "disabled"
+
+        else:
+            self.button_search["state"] = "active"
+            self.my_label.configure(text=self.default_text + self.start_path)
 
 root = Tk()
 root.title('DuplicateFinder by @mrk')
