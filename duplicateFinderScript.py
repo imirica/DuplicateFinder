@@ -1,12 +1,13 @@
 import datetime,os,sys,hashlib
 
-new_dict={}
+
 class DuplicateFinder:
 
 	def __init__(self, path):
 		self.path=path
 
 	def find_duplicates(self):
+            new_dict = {}
             for dirpath, _, filenames in os.walk(self.path):
                 for element in filenames:
                     with open(os.path.join(dirpath,element), 'rb') as f:
